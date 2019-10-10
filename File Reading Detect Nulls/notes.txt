@@ -1,0 +1,3 @@
+The get function from ifstream only gets until it finds the newline delimiter unless another delimiter is specified.
+The read function doesn't care about the delimiter characters but must be used with care since if it reads more than there is available it will set the eofbit and the failbit.
+Carateres portugueses necessitam de 2 bytes para serem representados.
