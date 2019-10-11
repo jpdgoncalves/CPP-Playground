@@ -1,39 +1,33 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <algorithm>
 
 using namespace std;
+
+const char ALPHABET[] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' ','.'};
 
 int main() {
 
     ifstream reader;
     char character;
     int buffersize = 3;
-    char buffer[buffersize];
     string sequence;
 
     reader.open("teste.txt");
 
     if(!reader) return -1;
 
-    reader.read(buffer,buffersize+1);
-    cout << "testing printing charr array\n"; 
+    while(sequence.length() < buffersize) {
+        reader.get(character);
 
-    for(int i = 0; i < 3; i++) {
-        cout << buffer[i] << "\n";
+        if( find( begin(ALPHABET), end(ALPHABET), character) != end(ALPHABET)) {
+            sequence += character;
+        }
+
     }
 
-    sequence.assign(buffer,buffersize);
-    cout << "testing printing string assigned from buffer\n";
     cout << sequence << "\n";
-
-    cout << "testing printing sequences of tree plus 1 leading character";
-
-    while(reader.get(character)) {
-        cout << sequence << "-" << character << "\n";
-        sequence.erase(0,1);
-        sequence += character;
-    }
 
     reader.close();
 
