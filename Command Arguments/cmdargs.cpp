@@ -8,7 +8,7 @@ int main(int argc, char* argv[]) {
         cout << i << " - " << argv[i] << "\n";
     }
 
-    int number = atoi(argv[0]);
+    int number = stoi(argv[1]);
 
     return 0;
 }
